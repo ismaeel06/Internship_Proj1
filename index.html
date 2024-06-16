@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="public\images\title_icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vise Clone</title>
+
+    <style>
+      html{
+        scroll-behavior: smooth;
+      }
+      #cursor{
+        position: fixed;
+        pointer-events: none;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        background-color: #d6b473;
+        transition: transform 0s;
+        z-index: 3;
+
+      }
+      body{
+        background-color: black;
+        cursor: none;
+      }
+    </style>
+
+    <script>
+     document.addEventListener('mousemove', function(e) {
+     const cursor = document.getElementById('cursor');
+     const x = e.clientX;
+     const y = e.clientY;
+
+     cursor.style.left = x + 'px';
+     cursor.style.top = y + 'px';
+});
+    </script>
+
+  </head>
+  <body>
+    <div style="max-width: 100%;" id="root"></div>
+    <div id="cursor"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
