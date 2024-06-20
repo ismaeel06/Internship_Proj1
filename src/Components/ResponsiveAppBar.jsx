@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import PersonIcon from '@mui/icons-material/Person';
 
 
-const pages = ['Viseclub', 'Team', 'FAQs', 'Contact'];
+const pages = [{name:'Viseclub',id:'#'}, {name:'Team',id:'#Team'}, {name:'FAQs',id:'#'}, {name:'Contact',id:'#Contact'}];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -57,6 +57,7 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -72,13 +73,12 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
-                // bgcolor: '#11141c',
+                display: { xs: 'block', md: 'none'}
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{fontFamily: 'sans-serif', fontSize: 16, }}>{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" sx={{fontFamily: 'sans-serif', fontSize: 16, }}>{page.name}</Typography>
                 </MenuItem>
               ))}
                 <MenuItem>
@@ -96,11 +96,12 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems:'center',gap:'32px'}}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: '#FFFFFFCC', display: 'block', fontFamily: 'sans-serif', fontSize: 16, textTransform: 'none', ":hover":{cursor: 'none', color: '#d6b473'}}}
               >
-                {page}
+                <a style={{all: 'unset'}} href={page.id}>{page.name}</a>
+                
               </Button>
             ))}
           </Box>

@@ -17,10 +17,15 @@
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.11",
     "gsap": "^3.12.5",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
-    "styled-components": "^6.1.11"
+    "react-scroll": "^1.9.0",
+    "styled-components": "^6.1.11",
+    "svelte-motion": "^0.12.2",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

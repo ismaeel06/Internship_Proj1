@@ -31,7 +31,7 @@ const TeamMembers = () => {
 
         </Box>
 
-        <Box sx={{display:'flex',gap:'2.5rem',flexWrap:'wrap',marginTop:'5rem',justifyContent:'space-between'}}>
+        <Box id='Team' sx={{display:'flex',gap:'2.5rem',flexWrap:'wrap',marginTop:'5rem',justifyContent:'space-between'}}>
             {pics.map((pic,index) => {
                 return(
                     <Box key={index} >

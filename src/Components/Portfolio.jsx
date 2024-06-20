@@ -1,31 +1,61 @@
+import {React,useEffect,useState, useRef} from 'react'
 import { Container,Box,Typography,Button } from '@mui/material'
 import AnimatedButton from './AnimatedButton'
-import React from 'react'
-import { Margin } from '@mui/icons-material'
+
+
+
+
 
 const Portfolio = () => {
+  const data = [  
+   {    
+      title:'New-Age Digital Assets',
 
-  const data = [
-    {
-     title:'New-Age Digital Assets',
-     content:'A range of secured digital assets carrying the properties and value of their underlying physical assets. Unify, manage and grow your portfolio with ease.',
-     pic:'/images/digital-assets.webp'
+      description: <p>A range of secured digital assets carrying the<br/>properties and value of their underlying physical<br/>assets. Unify, manage and grow your portfolio with<br/>ease.</p> ,
+
+      content:'/images/digital-assets.webp'  
     },
-    {
+
+    { 
       title:"World's First Financial NFTs",
-      content:'NFTs that double as future-proof financial assets with added value. Available exclusively on the Vise Marketplace.',
-      pic:'/images/Financial-FNTs.webp'
-      
-    },
-    {
-      title:'Vise QuantiFi',
-      content:"Founder's Desk that quantifies real-time production outputs, realized gains and daily rewards.",
-      pic:'/images/Meta-Real.webp'
-      
-    },
-    
 
-  ]
+      description: <p>NFTs that double as future-proof financial assets with<br/>added value. Available exclusively on the Vise<br/>Marketplace.</p>,
+
+      content:'/images/Financial-FNTs.webp'
+    },
+
+    {     
+      title:'Vise QuantiFi', 
+
+      description: <p>Founder's Desk that quantifies real-time production<br/>outputs, realized gains and daily rewards.</p> ,     
+      
+      content:'/images/Meta-Real.webp'
+      
+     },
+    
+   ]
+
+   const imageRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target;
+        const index = imageRefs.current.indexOf(target);
+        if (entry.isIntersecting) {
+          setActiveIndex(index);
+        }
+      });
+    });
+
+    imageRefs.current.forEach((ref) => observer.observe(ref));
+
+    return () => {
+      imageRefs.current.forEach((ref) => observer.unobserve(ref));
+    };
+  }, []);
+
 
   return (
     <Container disableGutters sx={{bgcolor:'#11141c',padding:'0px 50.625px'}}>
@@ -54,35 +84,33 @@ const Portfolio = () => {
 
             </Box>
 
-            <Box>
-            {data.map((item,index)=>(
-            <Box key={index} sx={{display:'flex',flexDirection:'column',height:'14rem',gap:'24px'}}>
-                <Typography variant='p' sx={{color:'white',fontFamily:'Opensaucesans,sans-serif',fontSize:'2rem',fontWeight:'500'}}>
+        <Box>
+        {data.map((item,index)=>(
+          <Box key={index} sx={{display:'flex',flexDirection:'column',height:'14rem',gap:'24px',filter: `brightness(${index === activeIndex ? 1 : 0.5})`,transition:'filter 0.2s ease'}}>
+            <Typography variant='p' sx={{color:'white',fontFamily:'Opensaucesans,sans-serif',fontSize:'2rem',fontWeight:'500'}}>
                     {item.title}
                 </Typography>
 
                 <Typography variant='p' sx={{color:'#FFFFFF80',fontSize:'1rem',fontWeight:'300',lineHeight:'1.5',fontFamily:'Inter,sans-serif'}}>
-                  {item.content}
+                  {item.description}
                 </Typography>
-            </Box>
-        
-        
-        ))}
-            </Box>
-            
           </Box>
+        ))}
+      </Box>
+            
+          </Box> 
 
-          <Box >
+           <Box >
           <Box sx={{display:'grid',gridColumnStart:'span 1',gridColumnEnd:'span 1',gridRowStart:'span 1',gridRowEnd:'span 1',gridRowGap:'12rem',alignSelf:'center',paddingTop:'120px'}}>
             {data.map((item,index)=>(
-              <Box key={index} sx={{display:'flex',justifyContent:'center',alignItems:'center',height:'24rem'}}>
-                <img src={item.pic} alt='portfolio' style={{width:'357.7px',height:'292.67px',objectFit:'cover'}}/>
+              <Box key={index}  ref={(el) => (imageRefs.current[index] = el)} sx={{display:'flex',justifydescription:'center',alignItems:'center',height:'24rem'}}>
+                <img src={item.content} alt='portfolio' style={{width:'357.7px',height:'292.67px',objectFit:'cover'}}/>
                 </Box>
             ))}
             </Box>
             
           </Box>
-
+          
         </Box>
         <Box sx={{display:{md:'none',xs:'flex',flexDirection:'column',gap:'8px'}}}>
 
@@ -103,23 +131,16 @@ const Portfolio = () => {
                 </Typography>
 
                 <Typography variant='p' sx={{color:'#FFFFFF80',fontSize:'1rem',fontWeight:'300',lineHeight:'1.5',fontFamily:'Inter,sans-serif'}}>
-                  {item.content}
+                  {item.description}
                 </Typography>
 
-                <img src={item.pic} alt="portfolio_pic" sx={{width:'400px',height:'488.89px',m:'32px 0px'}} />
+                <img src={item.content} alt="portfolio_content" sx={{width:'400px',height:'488.89px',m:'32px 0px'}} />
             </Box>
         
         
         ))}
             </Box>
 
-
-
-
-
-
-
-        
 
         </Box>
       

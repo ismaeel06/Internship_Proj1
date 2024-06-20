@@ -24,7 +24,7 @@ const Footer = () => {
   const [emailText, setEmailText] = useState('Your Email ID');
 
   return (
-    <Container
+    <Container id='Contact'
       disableGutters
       sx={{
         bgcolor: '#11141c',
