@@ -9,17 +9,17 @@ import AnimatedButton from './AnimatedButton'
 const Portfolio = () => {
   const data = [  
    {    
-      title: <p>New-Age Digital<br/>Assets</p> ,
+      title: "New-Age Digital Assets" ,
 
-      description: <p>A range of secured digital assets carrying the<br/>properties and value of their underlying physical<br/>assets. Unify, manage and grow your portfolio with<br/>ease.</p> ,
+      description: "A range of secured digital assets carrying the properties and value of their underlying physical assets. Unify, manage and grow your portfolio with ease." ,
 
       content:'/images/digital-assets.webp'  
     },
 
     { 
-      title:<p>World's First<br/>Financial NFTs</p>,
+      title:"World's First Financial NFTs",
 
-      description: <p>NFTs that double as future-proof financial assets with<br/>added value. Available exclusively on the Vise<br/>Marketplace.</p>,
+      description: "NFTs that double as future-proof financial assets with<br/>added value. Available exclusively on the Vise Marketplace.",
 
       content:'/images/Financial-FNTs.webp'
     },
@@ -27,7 +27,7 @@ const Portfolio = () => {
     {     
       title:'Vise QuantiFi', 
 
-      description: <p>Founder's Desk that quantifies real-time production<br/>outputs, realized gains and daily rewards.</p> ,     
+      description: "Founder's Desk that quantifies real-time production<br/>outputs, realized gains and daily rewards." ,     
       
       content:'/images/Meta-Real.webp'
       
@@ -92,7 +92,7 @@ const Portfolio = () => {
 
         <Box sx={{display:'flex',flexDirection:'column',gap:'20px'}}>
         {data.map((item,index)=>(
-          <Box key={index} sx={{display:'flex',flexDirection:'column',height:'14rem',gap:'8px',filter: `brightness(${index === activeIndex ? 1 : 0.5})`,transition:'filter 0.3s ease'}}>
+          <Box key={index} sx={{display:'flex',flexDirection:'column',height:'14rem',gap:'12px',filter: `brightness(${index === activeIndex ? 1 : 0.5})`,transition:'filter 0.3s ease'}}>
             <Typography variant='p' sx={{color:'white',fontFamily:'Opensaucesans,sans-serif',fontSize:'2rem',fontWeight:'500'}}>
                     {item.title}
                 </Typography>
