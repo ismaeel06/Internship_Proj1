@@ -9,7 +9,7 @@ import AnimatedButton from './AnimatedButton'
 const Portfolio = () => {
   const data = [  
    {    
-      title:'New-Age Digital Assets',
+      title: <p>New-Age Digital<br/>Assets</p> ,
 
       description: <p>A range of secured digital assets carrying the<br/>properties and value of their underlying physical<br/>assets. Unify, manage and grow your portfolio with<br/>ease.</p> ,
 
@@ -17,7 +17,7 @@ const Portfolio = () => {
     },
 
     { 
-      title:"World's First Financial NFTs",
+      title:<p>World's First<br/>Financial NFTs</p>,
 
       description: <p>NFTs that double as future-proof financial assets with<br/>added value. Available exclusively on the Vise<br/>Marketplace.</p>,
 
@@ -36,7 +36,7 @@ const Portfolio = () => {
    ]
 
    const imageRefs = useRef([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -46,8 +46,14 @@ const Portfolio = () => {
         if (entry.isIntersecting) {
           setActiveIndex(index);
         }
+        console.log(imageRefs.current.indexOf(target));
       });
-    });
+    },
+    {
+      rootMargin:'0px',
+      threshold:0.7,
+    }
+  );
 
     imageRefs.current.forEach((ref) => observer.observe(ref));
 
@@ -75,18 +81,18 @@ const Portfolio = () => {
 
         <Box sx={{display:{xs:'none', md:'grid',gridAutoColumns:'1fr',gridColumnGap:'3rem',gridRowGap:'3rem',gridTemplateColumns:'1fr 1.25fr',gridTemplateRows:'auto',paddingTop:'120px'}}}>
 
-          <Box sx={{position:'sticky',top:'72px',display:'grid',gridColumnStart:'span 1',gridColumnEnd:'span 1',gridRowStart:'span 1',gridRowEnd:'span 1',alignSelf:'start'}}>
+          <Box sx={{position:'sticky',top:'65px',display:'grid',gridColumnStart:'span 1',gridColumnEnd:'span 1',gridRowStart:'span 1',gridRowEnd:'span 1',alignSelf:'start'}}>
 
-            <Box sx={{display:'flex',gap:'48px',alignItems:'center',paddingBottom:'3rem'}}>
+            <Box sx={{display:'flex',gap:'48px',alignItems:'center',paddingBottom:'1rem'}}>
 
             <Box sx={{bgcolor:'#d6b473',width:'0.5rem',height:'0.5rem',borderRadius:'50%'}}></Box>
             <Typography variant='p' sx={{color:'#A4A9B6CC',fontFamily:"'Space Mono',sans-serif",fontSize:'1rem',lineHeight:'1.5'}}>Experience the best</Typography>
 
             </Box>
 
-        <Box>
+        <Box sx={{display:'flex',flexDirection:'column',gap:'20px'}}>
         {data.map((item,index)=>(
-          <Box key={index} sx={{display:'flex',flexDirection:'column',height:'14rem',gap:'24px',filter: `brightness(${index === activeIndex ? 1 : 0.5})`,transition:'filter 0.2s ease'}}>
+          <Box key={index} sx={{display:'flex',flexDirection:'column',height:'14rem',gap:'8px',filter: `brightness(${index === activeIndex ? 1 : 0.5})`,transition:'filter 0.3s ease'}}>
             <Typography variant='p' sx={{color:'white',fontFamily:'Opensaucesans,sans-serif',fontSize:'2rem',fontWeight:'500'}}>
                     {item.title}
                 </Typography>
@@ -101,13 +107,13 @@ const Portfolio = () => {
           </Box> 
 
            <Box >
-          <Box sx={{display:'grid',gridColumnStart:'span 1',gridColumnEnd:'span 1',gridRowStart:'span 1',gridRowEnd:'span 1',gridRowGap:'12rem',alignSelf:'center',paddingTop:'120px'}}>
+          <Box sx={{display:'grid',gridColumnStart:'span 1',gridColumnEnd:'span 1',gridRowStart:'span 1',gridRowEnd:'span 1',gridRowGap:'50vh',alignSelf:'center',paddingTop:'90px'}}>
             {data.map((item,index)=>(
               <Box key={index}  ref={(el) => (imageRefs.current[index] = el)} sx={{display:'flex',justifydescription:'center',alignItems:'center',height:'24rem'}}>
                 <img src={item.content} alt='portfolio' style={{width:'357.7px',height:'292.67px',objectFit:'cover'}}/>
                 </Box>
             ))}
-            </Box>
+          </Box>
             
           </Box>
           
