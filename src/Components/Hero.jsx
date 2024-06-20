@@ -1,4 +1,4 @@
-import { Box, Container,Typography } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import Hero_Info from './Hero_Info'
 import React from 'react'
 

@@ -1,5 +1,5 @@
 import {React,useEffect,useState, useRef} from 'react'
-import { Container,Box,Typography,Button } from '@mui/material'
+import { Container,Box,Typography } from '@mui/material'
 import AnimatedButton from './AnimatedButton'
 
 
@@ -46,7 +46,6 @@ const Portfolio = () => {
         if (entry.isIntersecting) {
           setActiveIndex(index);
         }
-        console.log(imageRefs.current.indexOf(target));
       });
     },
     {

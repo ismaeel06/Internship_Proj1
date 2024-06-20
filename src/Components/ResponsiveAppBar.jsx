@@ -13,7 +13,6 @@ import PersonIcon from '@mui/icons-material/Person';
 
 
 const pages = [{name:'Viseclub',id:'#'}, {name:'Team',id:'#Team'}, {name:'FAQs',id:'#'}, {name:'Contact',id:'#Contact'}];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

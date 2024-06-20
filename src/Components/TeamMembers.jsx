@@ -31,7 +31,7 @@ const TeamMembers = () => {
 
         </Box>
 
-        <Box id='Team' sx={{display:'flex',gap:'2.5rem',flexWrap:'wrap',marginTop:'5rem',justifyContent:'space-between'}}>
+        <Box id='Team' sx={{display:{xs:'none',md:'flex',gap:'2.5rem',flexWrap:'wrap',marginY:'5rem',justifyContent:'space-between'}}}>
             {pics.map((pic,index) => {
                 return(
                     <Box key={index} >
@@ -40,6 +40,17 @@ const TeamMembers = () => {
                 )
             })}
 
+
+        </Box>
+
+        <Box id='Team' sx={{display:{md:'none',xs:'flex',gap:'2.5rem',flexWrap:'wrap',marginTop:'5rem',}}}>
+            {pics.map((pic,index) => {
+                return(
+                    <Box key={index} >
+                        <img src={pic.source} alt='team member' style={{width:'355px',height:'480px',borderRadius:'10px'}} />
+                    </Box>
+                )
+            })}
 
         </Box>
 

@@ -351,20 +351,7 @@ const Footer = () => {
             </Typography>
           </Box>
 
-
-
-
-
-
-
-
       </Box>
-
-
-
-
-
-
 
     </Container>
   );

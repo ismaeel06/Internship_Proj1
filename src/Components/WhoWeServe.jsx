@@ -1,7 +1,6 @@
 import { Container,Box,Typography,Button } from '@mui/material'
 import StartButton from './StartButton'
 import React from 'react'
-import { Start } from '@mui/icons-material'
 
 const WhoWeServe = () => {
 

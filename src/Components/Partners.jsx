@@ -50,12 +50,6 @@ const Partners = () => {
         </Box>
 
 
-        
-
-            
-
-
-
     </Container>
   )
 }
