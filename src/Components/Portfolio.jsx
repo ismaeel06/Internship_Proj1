@@ -73,7 +73,7 @@ const Portfolio = () => {
 
             <AnimatedButton/>
               
-            <Typography variant='p' sx={{color:'#FFFFFF80', fontSize:'1rem', fontFamily:'Inter, sans-serif', fontWeight:'300',textAlign:'center',padding:'0px 50.625px',lineHeight:'1.5'}}>
+            <Typography variant='p' sx={{color:'#FFFFFF80', fontSize:'1rem', fontFamily:'Inter, sans-serif', fontWeight:'300',textAlign:'center',padding:'0px 50.625px',lineHeight:'1.5',paddingBottom:'80px'}}>
                 Asset digitization is the future of wealth-tech where we create digital equivalents of real-world<br/> physical or financial assets. With these new-age assets, our ecosystem caters to preserving,<br/> augmenting and diversifying your wealth.
             </Typography>
         </Box>
